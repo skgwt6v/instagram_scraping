@@ -17,17 +17,17 @@ dates = []
 views = []
 likes = []
 filename = ARGV[0] + '.csv'
+countdown = $urls.length
 
-$urls.each do |url|
+$urls.each_with_index do |url,i|
     scrape_instagram(url)
     codes.push($code)
     textes.push($text)
     dates.push($date)
     views.push($view)
     likes.push($like)
-
-    # count =-
-    # puts ("残り" + count + "件"）
+    puts('残り' + countdown.to_s + '件')
+    countdown -= 1
 end
 
 CSV.open(filename, "w") do |csv|
