@@ -8,8 +8,8 @@ require 'csv'
 
 require 'JSON'
 
-require './instagram_urls.rb'
-require './scrape_instagram.rb'
+require './facebook_urls.rb'
+require './scrape_facebook.rb'
 
 
 stores = [["url","本文","日付","View数","Like数"]]
@@ -18,7 +18,7 @@ filename = ARGV[0] + '.csv'
 countdown = $urls.length
 
 $urls.each do |url|
-    scrape_instagram(url)
+    scrape_facebook(url)
     array = []
     array.push($code,$text,$date,$view,$like)
     stores.push(array)
